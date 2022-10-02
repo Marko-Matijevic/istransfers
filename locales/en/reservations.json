@@ -1,0 +1,16 @@
+{
+    "reserve_your_trip": "Reserve your trip!",
+    "contacts": "Contacts",
+    "pick_up_address": "Pick-up address",
+    "drop_off_address": "Drop-off address",
+    "pick_up_date": "Pick-up date",
+    "pick_up_time": "Pick-up time",
+    "number_of_passengers": "Number of passengers",
+    "number_of_bags": "Number of bags",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "email_address": "E-mail address",
+    "telephone_number": "Telephone number",
+    "additional_information": "Additional information",
+    "send_inquiry": "Send inquiry"
+}

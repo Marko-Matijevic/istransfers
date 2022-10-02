@@ -1,0 +1,16 @@
+{
+    "reserve_your_trip": "Rezervirajte Vaše putovanje!",
+    "pick_up_address": "Adresa polazišta",
+    "drop_off_address": "Adresa odredišta",
+    "pick_up_date": "Datum polaska",
+    "pick_up_time": "Vrijeme polaska",
+    "number_of_passengers": "Broj putnika",
+    "number_of_bags": "Komada prtljage",
+    "first_name": "Ime",
+    "last_name": "Prezime",
+    "email_address": "Email adresa",
+    "telephone_number": "Broj telefona",
+    "additional_information": "Dodatna poruka / napomena",
+    "send_inquiry": "Pošaljite upit",
+    "contacts": "Contacts"
+}
