@@ -44,6 +44,16 @@ const nextConfig = {
 					destination: '/hr/contact',
 					locale: false,
 				},
+				{
+					source: '/hr/500',
+					destination: '/500',
+					locale: false,
+				},
+				{
+					source: '/en-GB/500',
+					destination: '/500',
+					locale: false,
+				},
 			],
 		};
 	},
