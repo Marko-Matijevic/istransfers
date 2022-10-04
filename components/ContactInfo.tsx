@@ -87,7 +87,11 @@ export const ContactInfo = () => {
 				</Heading>
 				<Divider w="100px" variant="primary" />
 				<HStack spacing="5" pt="20px">
-					<Link href="https://www.facebook.com/istransfers/" passHref>
+					<Link
+						href="https://www.facebook.com/istransfers/"
+						aria-label="Facebook"
+						passHref
+					>
 						<ChakraLink isExternal>
 							<FontAwesomeIcon
 								icon={faFacebookSquare}
@@ -96,7 +100,11 @@ export const ContactInfo = () => {
 							/>
 						</ChakraLink>
 					</Link>
-					<Link href="https://www.instagram.com/istransfers/" passHref>
+					<Link
+						href="https://www.instagram.com/istransfers/"
+						aria-label="Instagram"
+						passHref
+					>
 						<ChakraLink isExternal>
 							<FontAwesomeIcon
 								icon={faInstagram}

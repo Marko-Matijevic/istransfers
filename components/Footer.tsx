@@ -40,7 +40,7 @@ export const Footer = () => {
 				gap={{ base: 8, md: 0 }}
 			>
 				<VStack align="start" flexBasis="50%" spacing="5">
-					<Text as="h5" textTransform="uppercase" fontWeight="semibold">
+					<Text as="h4" textTransform="uppercase" fontWeight="semibold">
 						{t('common:contact')}
 					</Text>
 					<Divider w="100px" variant="primary" />
@@ -67,12 +67,16 @@ export const Footer = () => {
 					</Flex>
 				</VStack>
 				<VStack align="start" flexBasis="50%" spacing="6">
-					<Text as="h5" textTransform="uppercase" fontWeight="semibold">
+					<Text as="h4" textTransform="uppercase" fontWeight="semibold">
 						{t('common:social_networks')}
 					</Text>
 					<Divider w="100px" variant="primary" />
 					<Flex gap="5">
-						<Link href="https://www.facebook.com/istransfers/" passHref>
+						<Link
+							href="https://www.facebook.com/istransfers/"
+							aria-label="Facebook"
+							passHref
+						>
 							<ChakraLink
 								isExternal
 								_hover={{
@@ -82,7 +86,11 @@ export const Footer = () => {
 								<FontAwesomeIcon icon={faFacebookSquare} size="lg" />
 							</ChakraLink>
 						</Link>
-						<Link href="https://www.instagram.com/istransfers/" passHref>
+						<Link
+							href="https://www.instagram.com/istransfers/"
+							aria-label="Instagram"
+							passHref
+						>
 							<ChakraLink
 								isExternal
 								_hover={{

@@ -27,7 +27,7 @@ import Link from 'next-translate-routes/link';
 import React from 'react';
 import { routes } from '../constants';
 import { Navigation } from './Navigation';
-import { translatePath, translateUrl } from 'next-translate-routes';
+import { translatePath } from 'next-translate-routes';
 
 export const Header = () => {
 	const { pathname, locale, query } = useRouter();
@@ -128,12 +128,19 @@ export const Header = () => {
 				</Flex>
 				<Box
 					as="nav"
-					transition="all 200ms ease-in-out"
-					height={isMenuOpen ? '420px' : '0'}
+					display="flex"
+					height={isMenuOpen ? 'auto' : '0'}
 					transform="auto"
 					translateX={isMenuOpen ? '0' : '-100%'}
 				>
-					<UnorderedList listStyleType="none">
+					<UnorderedList
+						display="flex"
+						flexDirection="column"
+						gap="4"
+						listStyleType="none"
+						ml="0"
+						mt="4"
+					>
 						{renderHamburgerMenuNavigation()}
 					</UnorderedList>
 				</Box>
@@ -149,20 +156,18 @@ export const Header = () => {
 		return routes.map((route) => {
 			const localizedRoute = route === '/' ? 'home' : route.replace('/', '');
 			return (
-				<ListItem key={route}>
+				<ListItem display="list-item" key={route}>
 					<Link href={{ pathname: route, query }} locale={locale} passHref>
 						<ChakraLink
-							p="6"
 							_focus={{ focus: 'none' }}
 							fontWeight="bold"
 							textTransform="capitalize"
 							color={pathname === route ? 'primary' : 'secondary'}
 							_hover={{ color: 'primary', textDecoration: 'none' }}
 							onClick={setIsMenuOpen.toggle}
+							fontSize="2xl"
 						>
-							<Text as="h3" fontSize="2xl">
-								{t(`common:${localizedRoute}`)}
-							</Text>
+							{t(`common:${localizedRoute}`)}
 						</ChakraLink>
 					</Link>
 				</ListItem>

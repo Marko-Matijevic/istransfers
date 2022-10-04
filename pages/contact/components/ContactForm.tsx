@@ -30,7 +30,6 @@ interface ContactFormData {
 const ContactForm = () => {
 	const { t } = useTranslation();
 	const {
-		control,
 		handleSubmit,
 		register,
 		formState: { errors, isSubmitting },

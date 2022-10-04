@@ -6,6 +6,7 @@ const withTranslateRoutes = require('next-translate-routes/plugin');
 
 const nextConfig = {
 	reactStrictMode: true,
+	sourcemaps: 'production',
 	experimental: {
 		images: {
 			allowFutureImage: true,
