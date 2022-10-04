@@ -37,13 +37,18 @@ const Home: NextPage = () => {
 
 	return (
 		<>
-			<Box as="section" w="100%">
-				<Swiper
-					style={{
+			<Box
+				as="section"
+				w="100%"
+				sx={{
+					'.swiper': {
 						'--swiper-navigation-color': '#fff',
 						position: 'relative',
 						height: '650px',
-					}}
+					},
+				}}
+			>
+				<Swiper
 					slidesPerView={1}
 					spaceBetween={30}
 					loop={true}
@@ -51,7 +56,7 @@ const Home: NextPage = () => {
 					autoplay={{ delay: 5000 }}
 					modules={[Autoplay, Navigation]}
 				>
-					<SwiperSlide style={{ position: 'relative', overflow: 'hidden' }}>
+					<SwiperSlide>
 						<Image
 							placeholder="blur"
 							priority
