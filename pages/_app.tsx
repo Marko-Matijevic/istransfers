@@ -1,14 +1,37 @@
 import type { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';
 import Head from 'next/head';
+import { Layout } from '../components/Layout';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import theme from '../styles/theme';
+import { useRouter } from 'next/router';
+import { Pages } from '../types';
+import { HEAD_TITLES } from '../constants';
+import useTranslation from 'next-translate/useTranslation';
+import { Locales } from '../enums';
+config.autoAddCss = false;
 
-function MyApp({ Component, pageProps }: AppProps) {
+function Istransfers({ Component, pageProps }: AppProps) {
+	const { pathname } = useRouter();
+	const { lang } = useTranslation();
+
+	const getPage = () => {
+		if (pathname === '/') return 'home';
+		if (pathname === '/404') return 'error';
+
+		return pathname.replace('/', '') as Pages;
+	};
+
+	const page = getPage();
+	const headTitle: string = HEAD_TITLES[page][lang as Locales];
+
 	return (
 		<>
 			<Head>
 				{/* <!-- HTML Meta Tags --> */}
 				<title>
-					Istransfers - safe, quick, reliable. Airport transfers, hotels, vip
+					{headTitle} - safe, quick, reliable. Airport transfers, hotels, vip
 					transfers
 				</title>
 				<link rel="icon" href="/icons/favicon.ico" />
@@ -54,11 +77,13 @@ function MyApp({ Component, pageProps }: AppProps) {
 					content="/images/home/slider/slider-img-1.jpg"
 				/>
 			</Head>
-			<ChakraProvider resetCSS theme={undefined}>
-				<Component {...pageProps} />
+			<ChakraProvider resetCSS theme={theme}>
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
 			</ChakraProvider>
 		</>
 	);
 }
 
-export default MyApp;
+export default Istransfers;

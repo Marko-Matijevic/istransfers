@@ -21,5 +21,8 @@
     "max_7_passengers": "Max 7 passengers",
     "contacts": "Contacts",
     "required_field": "Please fill out this field",
-    "invalid_email": "Please enter a valid e-mail address"
+    "invalid_email": "Please enter a valid e-mail address",
+    "form_success": "Request sent",
+    "form_error": "Error occured",
+    "error": "404 Page"
 }

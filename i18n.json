@@ -1,0 +1,30 @@
+{
+    "locales": [
+        "en-GB",
+        "hr"
+    ],
+    "defaultLocale": "en-GB",
+    "pages": {
+        "*": [
+            "common"
+        ],
+        "/": [
+            "home"
+        ],
+        "/transfers": [
+            "transfers"
+        ],
+        "/reservations": [
+            "reservations"
+        ],
+        "/excursions": [
+            "excursions"
+        ],
+        "/contact": [
+            "contact"
+        ],
+        "/404": [
+            "error"
+        ]
+    }
+}
