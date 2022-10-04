@@ -24,16 +24,16 @@ function Istransfers({ Component, pageProps }: AppProps) {
 	};
 
 	const page = getPage();
-	const headTitle: string = HEAD_TITLES[page][lang as Locales];
+	const headTitle: string = `${
+		HEAD_TITLES[page][lang as Locales]
+	} - safe, quick, reliable. Airport transfers, hotels, vip
+    transfers`;
 
 	return (
 		<>
 			<Head>
 				{/* <!-- HTML Meta Tags --> */}
-				<title>
-					{headTitle} - safe, quick, reliable. Airport transfers, hotels, vip
-					transfers
-				</title>
+				<title>{headTitle}</title>
 				<link rel="icon" href="/icons/favicon.ico" />
 				<meta
 					name="keywords"
