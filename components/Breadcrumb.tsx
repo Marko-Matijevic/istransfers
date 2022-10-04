@@ -20,12 +20,7 @@ export const Breadcrumb = () => {
 	const { t, lang } = useTranslation();
 	const { pathname } = useRouter();
 
-	const getPage = () => {
-		if (pathname === '/') return 'home';
-		if (pathname === '/404') return 'error';
-
-		return pathname.replace('/', '') as Pages;
-	};
+	if (pathname === '/') return null;
 
 	const page = getPage();
 	const localizedPath = ROUTES[page as Pages][lang as Locales];
@@ -76,4 +71,11 @@ export const Breadcrumb = () => {
 			</ChakraBreadcrumb>
 		</VStack>
 	);
+
+	function getPage() {
+		if (pathname === '/') return 'home';
+		if (pathname === '/404') return 'error';
+
+		return pathname.replace('/', '') as Pages;
+	}
 };
