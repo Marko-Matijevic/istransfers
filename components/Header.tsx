@@ -5,9 +5,8 @@ import {
 	Divider,
 	Flex,
 	Heading,
-	Hide,
 	HStack,
-	Link,
+	Link as ChakraLink,
 	ListItem,
 	Show,
 	Text,
@@ -23,17 +22,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useTranslation from 'next-translate/useTranslation';
-import router, { useRouter } from 'next/router';
-import NextLink from 'next/link';
+import router, { useRouter } from 'next-translate-routes/router';
+import Link from 'next-translate-routes/link';
 import React from 'react';
-import { Locales } from '../enums';
-import { ROUTES } from '../constants';
-import { Pages } from '../types';
+import { routes } from '../constants';
 import { Navigation } from './Navigation';
+import { translatePath, translateUrl } from 'next-translate-routes';
 
 export const Header = () => {
-	const { asPath } = useRouter();
-	const { lang, t } = useTranslation();
+	const { pathname, locale, query } = useRouter();
+	const { t } = useTranslation();
 	const [isMenuOpen, setIsMenuOpen] = useBoolean();
 
 	return (
@@ -92,8 +90,7 @@ export const Header = () => {
 						minW="200px"
 						py="3"
 						borderRadius="30px"
-						bg="primary"
-						color="white"
+						variant="primary"
 						rightIcon={<FontAwesomeIcon icon={faChevronRight} color="white" />}
 						onClick={handleButtonClick}
 					>
@@ -145,32 +142,29 @@ export const Header = () => {
 	);
 
 	function handleButtonClick() {
-		router.push('/reservations', ROUTES.reservations[lang as Locales], {
-			locale: lang,
-		});
+		if (locale) router.push(`${translatePath('/reservations', locale)}`);
 	}
 
 	function renderHamburgerMenuNavigation() {
-		return Object.keys(ROUTES).map((route) => {
-			if (route === 'error') return null;
-			const localizedPath = ROUTES[route as Pages][lang as Locales];
+		return routes.map((route) => {
+			const localizedRoute = route === '/' ? 'home' : route.replace('/', '');
 			return (
-				<ListItem key={localizedPath}>
-					<NextLink href={localizedPath} passHref locale={lang}>
-						<Link
+				<ListItem key={route}>
+					<Link href={{ pathname: route, query }} locale={locale} passHref>
+						<ChakraLink
 							p="6"
 							_focus={{ focus: 'none' }}
 							fontWeight="bold"
 							textTransform="capitalize"
-							color={asPath === localizedPath ? 'primary' : 'secondary'}
+							color={pathname === route ? 'primary' : 'secondary'}
 							_hover={{ color: 'primary', textDecoration: 'none' }}
 							onClick={setIsMenuOpen.toggle}
 						>
 							<Text as="h3" fontSize="2xl">
-								{t(`common:${route}`)}
+								{t(`common:${localizedRoute}`)}
 							</Text>
-						</Link>
-					</NextLink>
+						</ChakraLink>
+					</Link>
 				</ListItem>
 			);
 		});

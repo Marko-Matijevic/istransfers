@@ -151,15 +151,15 @@ const ReservationForm = () => {
 								render={({ field }) => (
 									<DatePicker
 										selectedDate={field.value}
-										placeholderText="Select date"
-										{...register('pickUpDate', {
-											required: t('common:required_field'),
-										})}
+										placeholderText={t('reservations:select_date')}
 										onChange={(date) => {
 											field.onChange(date);
 										}}
 									/>
 								)}
+								rules={{
+									required: true,
+								}}
 							/>
 							<FormErrorMessage>
 								{errors.pickUpDate && errors.pickUpDate.message}

@@ -5,11 +5,12 @@ import { Layout } from '../components/Layout';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import theme from '../styles/theme';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next-translate-routes/router';
 import { Pages } from '../types';
 import { HEAD_TITLES } from '../constants';
 import useTranslation from 'next-translate/useTranslation';
 import { Locales } from '../enums';
+import { withTranslateRoutes } from 'next-translate-routes';
 config.autoAddCss = false;
 
 function Istransfers({ Component, pageProps }: AppProps) {
@@ -86,4 +87,4 @@ function Istransfers({ Component, pageProps }: AppProps) {
 	);
 }
 
-export default Istransfers;
+export default withTranslateRoutes(Istransfers);

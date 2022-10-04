@@ -1,31 +1,12 @@
 import { Route } from '../types';
 
-export const ROUTES: Route = {
-	home: {
-		'en-GB': '/',
-		hr: '/',
-	},
-	transfers: {
-		'en-GB': '/transfers',
-		hr: '/transferi',
-	},
-	excursions: {
-		'en-GB': '/excursions',
-		hr: '/izleti',
-	},
-	reservations: {
-		'en-GB': '/reservations',
-		hr: '/rezervacije',
-	},
-	contact: {
-		'en-GB': '/contact',
-		hr: '/kontakt',
-	},
-	error: {
-		'en-GB': '/error',
-		hr: '/error',
-	},
-};
+export const routes = [
+	'/',
+	'/transfers',
+	'/excursions',
+	'/reservations',
+	'/contact',
+];
 
 export const HEAD_TITLES = {
 	home: {

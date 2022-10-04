@@ -12,5 +12,6 @@
     "email_address": "E-mail address",
     "telephone_number": "Telephone number",
     "additional_information": "Additional information",
-    "send_inquiry": "Send inquiry"
+    "send_inquiry": "Send inquiry",
+    "select_date": "Select date"
 }

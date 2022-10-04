@@ -7,23 +7,20 @@ import {
 	VStack,
 } from '@chakra-ui/react';
 import React from 'react';
-import NextLink from 'next/link';
+import Link from 'next-translate-routes/link';
 import useTranslation from 'next-translate/useTranslation';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ROUTES } from '../constants';
-import { Pages } from '../types';
-import { Locales } from '../enums';
-import { useRouter } from 'next/router';
+
+import { useRouter } from 'next-translate-routes/router';
 
 export const Breadcrumb = () => {
-	const { t, lang } = useTranslation();
-	const { pathname } = useRouter();
+	const { pathname, locale, query } = useRouter();
+	const { t } = useTranslation();
 
 	if (pathname === '/') return null;
 
-	const page = getPage();
-	const localizedPath = ROUTES[page as Pages][lang as Locales];
+	const localizedPage = pathname.replace('/', '').toLowerCase();
 
 	return (
 		<VStack
@@ -35,7 +32,7 @@ export const Breadcrumb = () => {
 			bgImage="url('/images/driver-image-gray.jpg')"
 		>
 			<Heading as="h4" fontWeight="semibold" textTransform="capitalize">
-				{t(`common:${page}`)}
+				{t(`common:${localizedPage}`)}
 			</Heading>
 			<Divider w="75px" variant="primary" />
 			<ChakraBreadcrumb
@@ -49,33 +46,26 @@ export const Breadcrumb = () => {
 				}
 			>
 				<BreadcrumbItem>
-					<NextLink href="/" passHref>
+					<Link href="/" locale={locale} passHref>
 						<BreadcrumbLink
 							_focus={{ focus: 'none' }}
 							textTransform="capitalize"
 						>
 							{t('common:home')}
 						</BreadcrumbLink>
-					</NextLink>
+					</Link>
 				</BreadcrumbItem>
 				<BreadcrumbItem isCurrentPage>
-					<NextLink href={localizedPath} passHref>
+					<Link href={{ pathname, query }} locale={locale} passHref>
 						<BreadcrumbLink
 							_focus={{ focus: 'none' }}
 							textTransform="capitalize"
 						>
-							{t(`common:${page}`)}
+							{t(`common:${localizedPage}`)}
 						</BreadcrumbLink>
-					</NextLink>
+					</Link>
 				</BreadcrumbItem>
 			</ChakraBreadcrumb>
 		</VStack>
 	);
-
-	function getPage() {
-		if (pathname === '/') return 'home';
-		if (pathname === '/404') return 'error';
-
-		return pathname.replace('/', '') as Pages;
-	}
 };

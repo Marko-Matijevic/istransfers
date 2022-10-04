@@ -4,7 +4,6 @@ import {
 	Divider,
 	Flex,
 	Heading,
-	HStack,
 	SimpleGrid,
 	Text,
 	VStack,
@@ -65,7 +64,12 @@ const Excursions: NextPage = () => {
 							data-fancybox="gallery"
 							data-src="/images/excursions/istra/leading_groznjan.jpeg"
 						>
-							<Image src={groznjan} alt="Grožnjan" fill placeholder="blur" />
+							<Image
+								src={groznjan}
+								alt="Grožnjan"
+								style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+								placeholder="blur"
+							/>
 						</Box>
 						<Box
 							as="a"
@@ -76,7 +80,12 @@ const Excursions: NextPage = () => {
 							data-fancybox="gallery"
 							data-src="/images/excursions/istra/momjan_wine.jpeg"
 						>
-							<Image src={momjanWine} alt="Momjan" fill placeholder="blur" />
+							<Image
+								src={momjanWine}
+								alt="Momjan"
+								style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+								placeholder="blur"
+							/>
 						</Box>
 						<Box
 							as="a"
@@ -87,7 +96,12 @@ const Excursions: NextPage = () => {
 							data-fancybox="gallery"
 							data-src="/images/excursions/istra/momjan.jpeg"
 						>
-							<Image src={momjan} alt="Momjan" fill placeholder="blur" />
+							<Image
+								src={momjan}
+								alt="Momjan"
+								style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+								placeholder="blur"
+							/>
 						</Box>
 						<Box
 							as="a"
@@ -98,7 +112,12 @@ const Excursions: NextPage = () => {
 							data-fancybox="gallery"
 							data-src="/images/excursions/istra/motovun_istria_walls.jpeg"
 						>
-							<Image src={motovunWalls} alt="Motovun" fill placeholder="blur" />
+							<Image
+								src={motovunWalls}
+								alt="Motovun"
+								style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+								placeholder="blur"
+							/>
 						</Box>
 						<Box
 							as="a"
@@ -109,7 +128,12 @@ const Excursions: NextPage = () => {
 							data-fancybox="gallery"
 							data-src="/images/excursions/istra/on-motovun.jpeg"
 						>
-							<Image src={motovun} alt="Motovun" fill placeholder="blur" />
+							<Image
+								src={motovun}
+								alt="Motovun"
+								style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+								placeholder="blur"
+							/>
 						</Box>
 						<Box
 							as="a"
@@ -120,7 +144,12 @@ const Excursions: NextPage = () => {
 							data-fancybox="gallery"
 							data-src="/images/excursions/istra/brijuni.jpeg"
 						>
-							<Image src={brijuni} alt="Brijuni" fill placeholder="blur" />
+							<Image
+								src={brijuni}
+								alt="Brijuni"
+								style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+								placeholder="blur"
+							/>
 						</Box>
 					</SimpleGrid>
 				</Fancybox>
@@ -145,7 +174,7 @@ const Excursions: NextPage = () => {
 							<Image
 								src={plitvickaJezera}
 								alt="Plitvička jezera"
-								fill
+								style={{ width: '100%', height: '100%', objectFit: 'cover' }}
 								placeholder="blur"
 							/>
 						</Box>
@@ -158,7 +187,12 @@ const Excursions: NextPage = () => {
 							data-fancybox="gallery"
 							data-src="/images/excursions/other/gardaland.jpeg"
 						>
-							<Image src={gardaland} alt="Gardaland" fill placeholder="blur" />
+							<Image
+								src={gardaland}
+								alt="Gardaland"
+								style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+								placeholder="blur"
+							/>
 						</Box>
 						<Box
 							as="a"
@@ -169,7 +203,12 @@ const Excursions: NextPage = () => {
 							data-fancybox="gallery"
 							data-src="/images/excursions/other/zagreb.jpeg"
 						>
-							<Image src={zagreb} alt="Grad Zagreb" fill placeholder="blur" />
+							<Image
+								src={zagreb}
+								alt="Grad Zagreb"
+								style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+								placeholder="blur"
+							/>
 						</Box>
 						<Box
 							as="a"
@@ -183,7 +222,7 @@ const Excursions: NextPage = () => {
 							<Image
 								src={crkvaSvMarka}
 								alt="Crkva Sv. Marka"
-								fill
+								style={{ width: '100%', height: '100%', objectFit: 'cover' }}
 								placeholder="blur"
 							/>
 						</Box>
@@ -196,7 +235,12 @@ const Excursions: NextPage = () => {
 							data-fancybox="gallery"
 							data-src="/images/excursions/other/venecija.jpeg"
 						>
-							<Image src={venecija} alt="Venecija" fill placeholder="blur" />
+							<Image
+								src={venecija}
+								alt="Venecija"
+								style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+								placeholder="blur"
+							/>
 						</Box>
 					</SimpleGrid>
 				</Fancybox>

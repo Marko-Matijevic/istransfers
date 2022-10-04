@@ -1,17 +1,21 @@
-import { Box, Link, ListItem, UnorderedList } from '@chakra-ui/react';
-import React, { useEffect, useRef, useState } from 'react';
-import { Locales } from '../enums';
-import { ROUTES } from '../constants';
-import { Pages } from '../types';
-import NextLink from 'next/link';
+import {
+	Box,
+	Link as ChakraLink,
+	ListItem,
+	UnorderedList,
+} from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react';
+import { routes } from '../constants';
+import Link from 'next-translate-routes/link';
 import useTranslation from 'next-translate/useTranslation';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next-translate-routes/router';
+import { translatePath, translateUrl } from 'next-translate-routes';
 
 const NAVIGATION_FIXED_OFFSET = 115;
 
 export const Navigation = () => {
-	const { asPath } = useRouter();
-	const { t, lang } = useTranslation();
+	const { pathname, query, locale } = useRouter();
+	const { t } = useTranslation();
 	const [isFixed, setIsFixed] = useState(false);
 
 	useEffect(() => {
@@ -57,23 +61,21 @@ export const Navigation = () => {
 	);
 
 	function renderRoutes() {
-		return Object.keys(ROUTES).map((route) => {
-			if (route === 'error') return null;
-
-			const localizedPath = ROUTES[route as Pages][lang as Locales];
+		return routes.map((route) => {
+			const localizedRoute = route === '/' ? 'home' : route.replace('/', '');
 			return (
 				<ListItem key={route}>
-					<NextLink href={localizedPath} passHref locale={lang}>
-						<Link
+					<Link href={{ pathname: route, query }} passHref locale={locale}>
+						<ChakraLink
 							p="24px"
 							fontWeight="bold"
 							textTransform="capitalize"
-							background={asPath === localizedPath ? 'primary' : 'secondary'}
+							background={pathname === route ? 'primary' : 'secondary'}
 							_hover={{ backgroundColor: 'primary', textDecoration: 'none' }}
 						>
-							{t(`common:${route}`)}
-						</Link>
-					</NextLink>
+							{t(`common:${localizedRoute}`)}
+						</ChakraLink>
+					</Link>
 				</ListItem>
 			);
 		});

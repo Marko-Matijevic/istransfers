@@ -3,7 +3,7 @@ import {
 	Heading,
 	Divider,
 	HStack,
-	Link,
+	Link as ChakraLink,
 	Box,
 	Flex,
 	StackDivider,
@@ -21,7 +21,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
-import NextLink from 'next/link';
+import Link from 'next-translate-routes/link';
 
 export const ContactInfo = () => {
 	const { t } = useTranslation();
@@ -63,7 +63,7 @@ export const ContactInfo = () => {
 						/>
 					</Box>
 					<Box>
-						<Link href="tel:00385989970957">00385989970957</Link>
+						<ChakraLink href="tel:00385989970957">00385989970957</ChakraLink>
 						<Text color="tertiary">Ivan Pilar</Text>
 					</Box>
 				</Flex>
@@ -87,24 +87,24 @@ export const ContactInfo = () => {
 				</Heading>
 				<Divider w="100px" variant="primary" />
 				<HStack spacing="5" pt="20px">
-					<NextLink href="https://www.facebook.com/istransfers/" passHref>
-						<Link isExternal>
+					<Link href="https://www.facebook.com/istransfers/" passHref>
+						<ChakraLink isExternal>
 							<FontAwesomeIcon
 								icon={faFacebookSquare}
 								size="lg"
 								color="var(--chakra-colors-primary)"
 							/>
-						</Link>
-					</NextLink>
-					<NextLink href="https://www.instagram.com/istransfers/" passHref>
-						<Link isExternal>
+						</ChakraLink>
+					</Link>
+					<Link href="https://www.instagram.com/istransfers/" passHref>
+						<ChakraLink isExternal>
 							<FontAwesomeIcon
 								icon={faInstagram}
 								size="lg"
 								color="var(--chakra-colors-primary)"
 							/>
-						</Link>
-					</NextLink>
+						</ChakraLink>
+					</Link>
 				</HStack>
 			</Box>
 		</Box>

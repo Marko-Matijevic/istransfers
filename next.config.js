@@ -2,6 +2,7 @@
 
 const nextTranslate = require('./next-translate');
 const withTM = require('next-transpile-modules')(['@fancyapps/ui']);
+const withTranslateRoutes = require('next-translate-routes/plugin');
 
 const nextConfig = {
 	reactStrictMode: true,
@@ -11,52 +12,14 @@ const nextConfig = {
 		},
 	},
 	...nextTranslate,
+};
+
+const tm = withTranslateRoutes({
 	i18n: {
 		locales: ['en-GB', 'hr'],
 		defaultLocale: 'en-GB',
 	},
-	async rewrites() {
-		return {
-			beforeFiles: [
-				// {
-				// 	// this gets converted to /(en|fr|de)/(.*) so will not match the top-level
-				// 	// `/` or `/fr` routes like /:path* would
-				// 	source: '/(.*)',
-				// 	destination: '/',
-				// },
-				{
-					source: '/hr/transferi',
-					destination: '/hr/transfers',
-					locale: false, // Use `locale: false` so that the prefix matches the desired locale correctly
-				},
-				{
-					source: '/hr/izleti',
-					destination: '/hr/excursions',
-					locale: false,
-				},
-				{
-					source: '/hr/rezervacije',
-					destination: '/hr/reservations',
-					locale: false,
-				},
-				{
-					source: '/hr/kontakt',
-					destination: '/hr/contact',
-					locale: false,
-				},
-				{
-					source: '/hr/500',
-					destination: '/500',
-					locale: false,
-				},
-				{
-					source: '/en-GB/500',
-					destination: '/500',
-					locale: false,
-				},
-			],
-		};
-	},
-};
+	...nextConfig,
+});
 
-module.exports = withTM(nextConfig);
+module.exports = withTM(tm);

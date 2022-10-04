@@ -4,30 +4,38 @@ import {
 	BreadcrumbLink,
 	Divider,
 	Flex,
-	Link,
+	Link as ChakraLink,
 } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next-translate-routes/router';
 import React from 'react';
-import NextLink from 'next/link';
+import Link from 'next-translate-routes/link';
 import useTranslation from 'next-translate/useTranslation';
-import { Locales } from '../enums';
-import { ROUTES } from '../constants';
-import { Pages } from '../types';
+import { routes } from '../constants';
 import { faPhoneSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const TopBar = () => {
-	const router = useRouter();
-	const { t, lang } = useTranslation();
+	const { query, pathname, locales, locale } = useRouter();
+	const { t } = useTranslation();
 
-	const getPage = () => {
-		if (router.pathname === '/') return 'home';
-		if (router.pathname === '/404') return 'error';
+	const renderLocales = () => {
+		if (!locales) return null;
 
-		return router.pathname.replace('/', '') as Pages;
+		const page = routes.find((route) => pathname === route) ?? '/';
+
+		return locales.map((_locale) => {
+			const isCurrentPage = locale === _locale;
+			return (
+				<BreadcrumbItem key={_locale} isCurrentPage={isCurrentPage}>
+					<Link href={{ pathname, query }} locale={_locale} passHref>
+						<BreadcrumbLink fontWeight={isCurrentPage ? 'bold' : 'normal'}>
+							{t(`common:${_locale}`)}
+						</BreadcrumbLink>
+					</Link>
+				</BreadcrumbItem>
+			);
+		});
 	};
-
-	const page = getPage();
 
 	return (
 		<>
@@ -41,36 +49,9 @@ export const TopBar = () => {
 			>
 				<Flex alignItems="center" gap="2">
 					<FontAwesomeIcon icon={faPhoneSquare} />
-					<Link href="tel:00385989970957">00385989970957</Link>
+					<ChakraLink href="tel:00385989970957">00385989970957</ChakraLink>
 				</Flex>
-				<Breadcrumb>
-					<BreadcrumbItem isCurrentPage={lang === Locales.EN_GB}>
-						<NextLink
-							href={ROUTES[page][Locales.EN_GB]}
-							locale={Locales.EN_GB}
-							passHref
-						>
-							<BreadcrumbLink
-								fontWeight={lang === Locales.EN_GB ? 'bold' : 'normal'}
-							>
-								{t('common:english')}
-							</BreadcrumbLink>
-						</NextLink>
-					</BreadcrumbItem>
-					<BreadcrumbItem isCurrentPage={lang === Locales.HR}>
-						<NextLink
-							href={ROUTES[page][Locales.HR]}
-							locale={Locales.HR}
-							passHref
-						>
-							<BreadcrumbLink
-								fontWeight={lang === Locales.HR ? 'bold' : 'normal'}
-							>
-								{t('common:croatian')}
-							</BreadcrumbLink>
-						</NextLink>
-					</BreadcrumbItem>
-				</Breadcrumb>
+				<Breadcrumb>{renderLocales()}</Breadcrumb>
 			</Flex>
 			<Divider />
 		</>

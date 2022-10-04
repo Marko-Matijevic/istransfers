@@ -3,10 +3,7 @@ import {
 	Center,
 	Divider,
 	Flex,
-	Grid,
-	GridItem,
-	HStack,
-	Link,
+	Link as ChakraLink,
 	Text,
 	VStack,
 } from '@chakra-ui/react';
@@ -22,7 +19,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
-import NextLink from 'next/link';
+import Link from 'next-translate-routes/link';
 
 export const Footer = () => {
 	const { t } = useTranslation();
@@ -57,7 +54,7 @@ export const Footer = () => {
 					<Flex align="center" gap="6">
 						<FontAwesomeIcon width="25px" icon={faPhone} size="lg" />
 						<Box>
-							<Link href="tel:00385989970957">00385989970957</Link>
+							<ChakraLink href="tel:00385989970957">00385989970957</ChakraLink>
 							<Text>Ivan Pilar</Text>
 						</Box>
 					</Flex>
@@ -75,26 +72,26 @@ export const Footer = () => {
 					</Text>
 					<Divider w="100px" variant="primary" />
 					<Flex gap="5">
-						<NextLink href="https://www.facebook.com/istransfers/" passHref>
-							<Link
+						<Link href="https://www.facebook.com/istransfers/" passHref>
+							<ChakraLink
 								isExternal
 								_hover={{
 									color: 'var(--chakra-colors-primary)',
 								}}
 							>
 								<FontAwesomeIcon icon={faFacebookSquare} size="lg" />
-							</Link>
-						</NextLink>
-						<NextLink href="https://www.instagram.com/istransfers/" passHref>
-							<Link
+							</ChakraLink>
+						</Link>
+						<Link href="https://www.instagram.com/istransfers/" passHref>
+							<ChakraLink
 								isExternal
 								_hover={{
 									color: 'var(--chakra-colors-primary)',
 								}}
 							>
 								<FontAwesomeIcon icon={faInstagram} size="lg" />
-							</Link>
-						</NextLink>
+							</ChakraLink>
+						</Link>
 					</Flex>
 				</VStack>
 			</Flex>

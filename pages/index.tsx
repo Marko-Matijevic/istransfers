@@ -6,14 +6,13 @@ import {
 	VStack,
 	Text,
 	Button,
-	HStack,
-	Link,
+	Link as ChakraLink,
 	Stack,
 } from '@chakra-ui/react';
 
 import type { NextPage } from 'next';
 import Image from 'next/future/image';
-import NextLink from 'next/link';
+import Link from 'next-translate-routes/link';
 
 import { Autoplay, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -31,8 +30,10 @@ import {
 import useTranslation from 'next-translate/useTranslation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'next-translate-routes/router';
 
 const Home: NextPage = () => {
+	const { query, locale } = useRouter();
 	const { t } = useTranslation();
 
 	return (
@@ -83,6 +84,7 @@ const Home: NextPage = () => {
 					</SwiperSlide>
 					<SwiperSlide>
 						<Image
+							placeholder="blur"
 							style={{ width: '100%', height: '100%', objectFit: 'cover' }}
 							src={sliderImgFour}
 							alt="Mercedes van interior"
@@ -130,7 +132,7 @@ const Home: NextPage = () => {
 					spacing="5"
 					align="center"
 				>
-					<Link href="tel:00385989970957">
+					<ChakraLink href="tel:00385989970957">
 						<Button
 							color="white"
 							w="150px"
@@ -140,8 +142,12 @@ const Home: NextPage = () => {
 						>
 							{t('home:call_us')}
 						</Button>
-					</Link>
-					<NextLink href="/reservations" passHref>
+					</ChakraLink>
+					<Link
+						href={{ pathname: '/reservations', query }}
+						locale={locale}
+						passHref
+					>
 						<Button
 							as="a"
 							color="white"
@@ -152,7 +158,7 @@ const Home: NextPage = () => {
 						>
 							{t('home:check_availability')}
 						</Button>
-					</NextLink>
+					</Link>
 				</Stack>
 			</VStack>
 		</>
