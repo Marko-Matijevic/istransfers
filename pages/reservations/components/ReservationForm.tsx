@@ -36,7 +36,7 @@ interface ReservationFormData {
 	additionalInformation?: string;
 }
 
-export const ReservationForm = () => {
+const ReservationForm = () => {
 	const { t } = useTranslation();
 	const {
 		control,
@@ -431,3 +431,5 @@ export const ReservationForm = () => {
 		</Box>
 	);
 };
+
+export default ReservationForm;

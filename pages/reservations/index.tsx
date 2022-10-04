@@ -1,7 +1,7 @@
-import { Box, Divider, SimpleGrid, Stack } from '@chakra-ui/react';
+import { Box, Divider, Stack } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { ContactInfo } from '../../components';
-import { ReservationForm } from './components';
+import ReservationForm from './components/ReservationForm';
 
 const Reservations: NextPage = () => {
 	return (

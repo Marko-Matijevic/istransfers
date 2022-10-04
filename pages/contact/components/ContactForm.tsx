@@ -9,7 +9,6 @@ import {
 	Input,
 	Textarea,
 	useToast,
-	VStack,
 	Text,
 	Grid,
 	GridItem,
@@ -28,7 +27,7 @@ interface ContactFormData {
 	message: string;
 }
 
-export const ContactForm = () => {
+const ContactForm = () => {
 	const { t } = useTranslation();
 	const {
 		control,
@@ -188,3 +187,5 @@ export const ContactForm = () => {
 		</Box>
 	);
 };
+
+export default ContactForm;
