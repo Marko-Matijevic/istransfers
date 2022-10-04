@@ -58,6 +58,8 @@ export const Navigation = () => {
 
 	function renderRoutes() {
 		return Object.keys(ROUTES).map((route) => {
+			if (route === 'error') return null;
+
 			const localizedPath = ROUTES[route as Pages][lang as Locales];
 			return (
 				<ListItem key={route}>
