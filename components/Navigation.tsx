@@ -9,7 +9,6 @@ import { routes } from '../constants';
 import Link from 'next-translate-routes/link';
 import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next-translate-routes/router';
-import { translatePath, translateUrl } from 'next-translate-routes';
 
 const NAVIGATION_FIXED_OFFSET = 115;
 
