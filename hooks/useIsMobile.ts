@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 export const useIsMobile = (userAgent?: UserAgent): boolean => {
 	const [isMobile, setIsMobile] = useState(false);
-	const [mobileBreakpoint] = useMediaQuery('(max-width: 998px)', {
+	const [mobileBreakpoint] = useMediaQuery('(max-width: 991px)', {
 		ssr: true,
 	});
 
