@@ -1,6 +1,6 @@
 export { TopBar } from './TopBar';
 export { Layout } from './Layout';
-export { Header } from './Header';
+export { Header } from './header';
 export { Navigation } from './Navigation';
 export { Footer } from './Footer';
 export { Services } from './Services';

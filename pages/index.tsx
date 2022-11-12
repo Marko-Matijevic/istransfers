@@ -43,8 +43,6 @@ const Home: NextPage = () => {
 				sx={{
 					'.swiper': {
 						'--swiper-navigation-color': '#fff',
-						position: 'relative',
-						height: '650px',
 					},
 				}}
 			>
@@ -57,36 +55,51 @@ const Home: NextPage = () => {
 					modules={[Autoplay, Navigation]}
 				>
 					<SwiperSlide>
-						<Image
-							placeholder="blur"
-							priority
-							src={sliderImgOne}
-							alt="Mercedes van front picture"
-							style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-						/>
+						<Box maxHeight="650px" width="100%">
+							<Image
+								alt="Mercedes van front picture"
+								src={sliderImgOne}
+								placeholder="blur"
+								priority
+								style={{ minWidth: '100%' }}
+							/>
+						</Box>
 					</SwiperSlide>
 					<SwiperSlide>
-						<Image
-							placeholder="blur"
-							style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-							src={sliderImgTwo}
-							alt="Mercedes van back picture"
-						/>
+						<Box maxHeight="650px" width="100%">
+							<Image
+								placeholder="blur"
+								src={sliderImgTwo}
+								alt="Mercedes van back picture"
+								width="100%"
+								height="100%"
+								style={{ minWidth: '100%' }}
+							/>
+						</Box>
 					</SwiperSlide>
 					<SwiperSlide>
-						<Image
-							placeholder="blur"
-							style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-							src={sliderImgThree}
-							alt="Mercedes van top picture"
-						/>
+						<Box maxHeight="650px" width="100%">
+							<Image
+								placeholder="blur"
+								src={sliderImgThree}
+								alt="Mercedes van top picture"
+								width="100%"
+								height="100%"
+								style={{ minWidth: '100%' }}
+							/>
+						</Box>
 					</SwiperSlide>
 					<SwiperSlide>
-						<Image
-							style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-							src={sliderImgFour}
-							alt="Mercedes van interior"
-						/>
+						<Box maxHeight="650px" width="100%">
+							<Image
+								placeholder="blur"
+								src={sliderImgFour}
+								alt="Mercedes van interior"
+								width="100%"
+								height="100%"
+								style={{ minWidth: '100%' }}
+							/>
+						</Box>
 					</SwiperSlide>
 				</Swiper>
 			</Box>

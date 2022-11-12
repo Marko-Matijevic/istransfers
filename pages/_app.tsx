@@ -10,9 +10,14 @@ import { Pages } from '../types';
 import { HEAD_TITLES } from '../constants';
 import useTranslation from 'next-translate/useTranslation';
 import { Locales } from '../enums';
+import { NextPageContext } from 'next';
+import { parse, UserAgent } from 'next-useragent';
 config.autoAddCss = false;
 
-function Istransfers({ Component, pageProps }: AppProps) {
+function Istransfers({
+	Component,
+	pageProps,
+}: AppProps<{ userAgent: UserAgent }>) {
 	const { pathname } = useRouter();
 	const { lang } = useTranslation();
 
@@ -78,12 +83,22 @@ function Istransfers({ Component, pageProps }: AppProps) {
 				/>
 			</Head>
 			<ChakraProvider resetCSS theme={theme}>
-				<Layout>
+				<Layout userAgent={pageProps.userAgent}>
 					<Component {...pageProps} />
 				</Layout>
 			</ChakraProvider>
 		</>
 	);
+}
+
+export async function getServerSideProps({ req }: NextPageContext) {
+	const userAgent = parse(req?.headers['user-agent'] ?? '');
+
+	return {
+		props: {
+			userAgent,
+		},
+	};
 }
 
 export default Istransfers;
