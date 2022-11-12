@@ -87,6 +87,4 @@ function Istransfers({ Component, pageProps }: AppProps) {
 	);
 }
 
-export let getStaticProps = undefined;
-
 export default withTranslateRoutes(Istransfers);
