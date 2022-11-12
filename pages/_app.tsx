@@ -18,7 +18,7 @@ function Istransfers({ Component, pageProps }: AppProps) {
 
 	const getPage = () => {
 		if (pathname === '/') return 'home';
-		if (pathname === '/404') return 'error';
+		if (pathname === '/404' || pathname === '/500') return 'error';
 
 		return pathname.replace('/', '') as Pages;
 	};

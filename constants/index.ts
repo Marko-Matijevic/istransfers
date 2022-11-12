@@ -50,6 +50,6 @@ export const HEAD_TITLES = {
 	},
 	error: {
 		'en-GB': '404 Page',
-		hr: '404 Page',
+		hr: '404 Stranica',
 	},
 };

@@ -22,7 +22,7 @@ export const TopBar = () => {
 
 	const getPage = () => {
 		if (router.pathname === '/') return 'home';
-		if (router.pathname === '/404') return 'error';
+		if (router.pathname === '/404' || '/500') return 'error';
 
 		return router.pathname.replace('/', '') as Pages;
 	};

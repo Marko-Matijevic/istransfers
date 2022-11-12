@@ -24,5 +24,5 @@
     "invalid_email": "Unesite važeću adresu e-mail adresu",
     "form_success": "Zahtjev poslan",
     "form_error": "Došlo je do pogreške",
-    "error": "404 Page"
+    "error": "Stranica nije pronađena"
 }
