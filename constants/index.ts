@@ -30,7 +30,7 @@ export const HEAD_TITLES = {
 		hr: 'Kontakt',
 	},
 	error: {
-		'en-GB': '404 Page',
-		hr: '404 Page',
+		'en-GB': 'Page not found',
+		hr: 'Stranica nije pronađena',
 	},
 };

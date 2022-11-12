@@ -13,6 +13,7 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useRouter } from 'next-translate-routes/router';
+import { Pages } from '../types';
 
 export const Breadcrumb = () => {
 	const { pathname, locale, query } = useRouter();
@@ -20,7 +21,13 @@ export const Breadcrumb = () => {
 
 	if (pathname === '/') return null;
 
-	const localizedPage = pathname.replace('/', '').toLowerCase();
+	const getPage = () => {
+		if (pathname === '/404' || pathname === '/500') return 'error';
+
+		return pathname.replace('/', '') as Pages;
+	};
+
+	const localizedPage = getPage();
 
 	return (
 		<VStack
